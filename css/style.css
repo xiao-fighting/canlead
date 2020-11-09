@@ -193,86 +193,28 @@ header .container{
 }
 
 /* --輪播圖--------------------------------- */
-.carousel {
-  position: relative;
-  width: 720px;
-  height: 320px;
-  border: 0px solid #333;
-  border-radius: 5px;
-  overflow: hidden;
-  top: -80px;
-  left: 0;
-  margin: auto;
-  background-color: white;
-}
-
-#list {
+.carousel{
   position: absolute;
-  z-index: 1;
-  width: 4320px;
-  height: 320px;
-}
-
-#buttons {
-  position: absolute;
-  top: 38%;
-  z-index: 2;
+  top: -10%;
   left: 50%;
-  transform: translate(-50%,0);
-}
-
-#buttons span {
-  float: left;
-  margin-right: 5px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-image: url(../images/circle03.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  cursor: pointer;
-}
-
-#buttons .on {
-  background-image: url(../images/two-circle03.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: cover;
-
-}
-
-.arrow {
-  position: absolute;
-  top: 10%;
-  z-index: 2;
-  cursor: pointer;
-}
-
-.arrow:hover {
-  background-color: var(--grayBlue02);
-}
-
-#container:hover .arrow {
-  display: block;
-}
-
-#prev {
-  left: 10%;
-}
-
-#next {
-  right: 10%;
-}
-
-/* ---------------------------- */
-#list .carousel-item{
-  float: left;
+  transform: translateX(-50%);
   width: 720px;
-  height:312px;
-  padding: 3.5rem;
+  height: 320px;
+  background-color: white;
   margin: auto;
-  text-align: center;
-  border-radius: 5px;
+  overflow: hidden;
+}
+
+.carousel-item{
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem;
+}
+
+.carousel-item.active{
+  display: flex;
 }
 
 .carousel-item h3{
@@ -297,7 +239,70 @@ header .container{
 
 }
 
-/* --輪播圖 左右按鈕----------------------------------- */
+.controls .prev, .controls .next{
+  position: absolute;
+  top: 10%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all .3s ease;
+  z-index: 2;
+  
+}
+
+.controls .prev{
+  left: 10%;
+  background-image: url(../images/angle-left.png) ;
+  
+}
+.controls .next{
+  right: 10%;
+  background-image: url(../images/angle-right.png) ;
+}
+
+.controls .prev:hover {
+  background-image: url(../images/angle-left-white.png);
+}
+.controls .next:hover{
+  background-image: url(../images/angle-right-white.png);
+
+}
+
+.buttons{
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translateX(-50%);
+  /* width: 100px; */
+  margin: auto;
+  z-index: 99;
+  cursor: pointer;
+
+}
+
+.buttons div{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-image: url(../images/circle03.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* padding: 1px; */
+  margin: 0 5px;
+  
+}
+
+.buttons div.active{
+  background-image: url(../images/two-circle03.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* --------------------------------------------------- */
 .sec02two{
   position: absolute;
   bottom: 0;
